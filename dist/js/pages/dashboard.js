@@ -110,62 +110,65 @@ $(function () {
 
   /* Chart.js Charts */
   // Sales chart
-  var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d');
+  // changed the variable name 
+  var networkChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d');
   //$('#revenue-chart').get(0).getContext('2d');
 
-  var salesChartData = {
-    labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    // changed the data
+  var networkChartData = {
+    labels  : ['14:00','14:10', '14:20', '14:30', '14:40', '14:50', '15:00'],
     datasets: [
       {
-        label               : 'Digital Goods',
-        backgroundColor     : 'rgba(60,141,188,0.9)',
-        borderColor         : 'rgba(60,141,188,0.8)',
+        label               : 'in',
+        // backgroundColor     : 'rgba(255,255,255)',
+        borderColor         : 'rgba(0,255,0)',
         pointRadius          : false,
-        pointColor          : '#3b8bba',
+        pointColor          : 'rgba(255,0,0)',
         pointStrokeColor    : 'rgba(60,141,188,1)',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(60,141,188,1)',
-        data                : [28, 48, 40, 19, 86, 27, 90]
+        data                : [18220.91, 18320.74, 18048.91, 18304.03, 17998.9, 18207.35, 17700.18]
       },
       {
-        label               : 'Electronics',
-        backgroundColor     : 'rgba(210, 214, 222, 1)',
-        borderColor         : 'rgba(210, 214, 222, 1)',
+        label               : 'out',
+        // backgroundColor     : 'rgba(255,255,255)',
+        borderColor         : 'rgba(0,0,255)',
         pointRadius         : false,
-        pointColor          : 'rgba(210, 214, 222, 1)',
+        pointColor          : '#5555cc',
         pointStrokeColor    : '#c1c7d1',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(220,220,220,1)',
-        data                : [65, 59, 80, 81, 56, 55, 40]
+        data                : [961.4, 922.32, 903.89, 966.03, 903.11, 922.41, 922.55]
       },
     ]
   }
 
-  var salesChartOptions = {
+     // changed the options
+  var networkChartOptions = {
     maintainAspectRatio : false,
     responsive : true,
     legend: {
-      display: false
+      display: true
     },
     scales: {
       xAxes: [{
         gridLines : {
-          display : false,
+          display : true,
         }
       }],
       yAxes: [{
         gridLines : {
-          display : false,
+          display : true,
         }
       }]
     }
   }
 
   // This will get the first returned node in the jQuery collection.
-  var salesChart = new Chart(salesChartCanvas, { 
+  var networkChart = new Chart(networkChartCanvas, { 
       type: 'line', 
-      data: salesChartData, 
-      options: salesChartOptions
+      data: networkChartData, 
+      options: networkChartOptions
     }
   )
 
